@@ -8,7 +8,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Space+Mono:wght@400;700&family=Nunito:wght@300;400;600;700;900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="a.css">
 </head>
 
 <body>
@@ -33,7 +33,17 @@
     <!-- CONFETTI CANVAS -->
     <canvas id="confettiCanvas"></canvas>
 
-    <div class="page">
+    <!-- ═══════════════ INTRO SCREEN ═══════════════ -->
+    <div class="intro-screen" id="introScreen">
+        <div class="intro-card">
+            <p class="intro-label">Welcome to</p>
+            <h1 class="intro-title">MBBS PROFF-1</h1>
+            <p class="intro-text">Tap the button below to enter the celebration screen.</p>
+            <button class="celebrate-btn" onclick="openMainScreen()">MBBS PROFF-1</button>
+        </div>
+    </div>
+
+    <div class="page hidden">
 
         <!-- ═══════════════ HERO ═══════════════ -->
         <section class="hero">
@@ -296,13 +306,20 @@
 
             <p class="hug-message">You deserve all the Hugs 💛<br>Congrats again, Dr. Diya! (Yahan aise hi Hugs milte
                 hain) 🩺</p>
-            <button class="celebrate-btn" onclick="launchConfetti(); closeHugPage()">HUH</button>
+            <button class="celebrate-btn" onclick="launchConfetti(); closeHugPage()">Launch Confetti! 🎉</button>
         </div>
     </div>
 
     <script src="js/confetti.js"></script>
     <script src="js/main.js"></script>
     <script>
+        function openMainScreen() {
+            const introScreen = document.getElementById('introScreen');
+            const page = document.querySelector('.page');
+            introScreen.style.display = 'none';
+            page.classList.remove('hidden');
+        }
+
         function showHugPage() {
             const hugPage = document.getElementById('hugPage');
             hugPage.classList.add('active');
