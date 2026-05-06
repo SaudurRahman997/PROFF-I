@@ -151,39 +151,210 @@ body {
     gap: 0.6rem;
 }
 
-/* ── DOLL ── */
-.doll-wrap {
+/* ══════════════════════════════════
+   PHOTO — replaces the old doll SVG
+══════════════════════════════════ */
+
+/* Outer wrapper — same slot as .doll-wrap was */
+.photo-wrap {
     position: relative;
-    width: min(220px, 52vw);
-    margin-bottom: 0.4rem;
+    width: min(240px, 58vw);
+    margin-bottom: 1.2rem;
     opacity: 0;
     animation: dollDrop 1.1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.3s;
-    cursor: pointer;
+    cursor: default;
+    /* centre everything inside */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.doll-wrap:hover .doll-svg {
-    transform: scale(1.05) rotate(-3deg);
-}
-
-.doll-svg {
+/* The circular frame that clips the photo */
+.photo-frame {
+    position: relative;
     width: 100%;
-    height: auto;
-    transition: transform 0.4s ease;
-    filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.5));
+    aspect-ratio: 1 / 1;
+    /* always a perfect circle */
+    border-radius: 50%;
+    overflow: hidden;
+    /* multi-layer gold border */
+    border: 4px solid var(--gold);
+    outline: 2px solid rgba(201, 168, 76, 0.25);
+    outline-offset: 6px;
+    box-shadow:
+        0 0 0 8px rgba(201, 168, 76, 0.08),
+        0 20px 60px rgba(0, 0, 0, 0.55),
+        inset 0 0 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    z-index: 2;
 }
 
-.doll-glow {
+.photo-wrap:hover .photo-frame {
+    transform: scale(1.04);
+    box-shadow:
+        0 0 0 10px rgba(201, 168, 76, 0.14),
+        0 28px 72px rgba(0, 0, 0, 0.6),
+        inset 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
+/* The actual photo */
+.farwa-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* fills circle, crops if needed */
+    object-position: center top;
+    /* bias toward the face */
+    display: block;
+    filter:
+        brightness(1.05) contrast(1.04) saturate(1.08);
+    /* subtle pop */
+    transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.photo-wrap:hover .farwa-photo {
+    filter: brightness(1.1) contrast(1.05) saturate(1.12);
+    transform: scale(1.03);
+}
+
+/* ── Fallback placeholder (shown if image file is missing) ── */
+.photo-placeholder {
+    display: none;
+    /* hidden by default; shown via JS onerror */
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    background: linear-gradient(135deg, var(--navy-soft) 0%, #0d1b35 100%);
+    border-radius: 50%;
+    text-align: center;
+    padding: 1rem;
+}
+
+.placeholder-icon {
+    font-size: 2.8rem;
+    line-height: 1;
+}
+
+.placeholder-text {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.68rem;
+    line-height: 1.5;
+    color: var(--muted);
+}
+
+.placeholder-text code {
+    display: inline-block;
+    margin-top: 0.3rem;
+    font-size: 0.65rem;
+    color: var(--gold);
+    background: rgba(201, 168, 76, 0.1);
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    border: 1px solid rgba(201, 168, 76, 0.25);
+    font-family: 'Space Mono', monospace;
+}
+
+/* ── Decorative spinning rings behind the photo ── */
+.photo-ring {
     position: absolute;
-    bottom: -10px;
+    border-radius: 50%;
+    border: 1.5px dashed rgba(201, 168, 76, 0.22);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.photo-ring-1 {
+    width: calc(100% + 28px);
+    height: calc(100% + 28px);
+    animation: ringRotate 18s linear infinite;
+}
+
+.photo-ring-2 {
+    width: calc(100% + 52px);
+    height: calc(100% + 52px);
+    border-color: rgba(201, 168, 76, 0.12);
+    animation: ringRotate 30s linear infinite reverse;
+}
+
+@keyframes ringRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ── Gold sparkle dots ── */
+.sparkle {
+    position: absolute;
+    font-size: 0.75rem;
+    color: var(--gold);
+    opacity: 0;
+    z-index: 3;
+    pointer-events: none;
+    animation: sparklePop 3s ease-in-out infinite;
+}
+
+.s1 {
+    top: -8px;
+    left: 50%;
+    animation-delay: 0s;
+}
+
+.s2 {
+    bottom: -8px;
+    right: 18%;
+    animation-delay: 0.75s;
+}
+
+.s3 {
+    top: 20%;
+    right: -12px;
+    animation-delay: 1.5s;
+    font-size: 0.9rem;
+}
+
+.s4 {
+    top: 50%;
+    left: -12px;
+    animation-delay: 2.2s;
+}
+
+@keyframes sparklePop {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(0.5) rotate(0deg);
+    }
+
+    40%,
+    60% {
+        opacity: 1;
+        transform: scale(1.2) rotate(20deg);
+    }
+}
+
+/* ── Glow halo under the photo ── */
+.photo-glow {
+    position: absolute;
+    bottom: -14px;
     left: 50%;
     transform: translateX(-50%);
-    width: 70%;
-    height: 20px;
-    background: radial-gradient(ellipse, rgba(201, 168, 76, 0.35) 0%, transparent 70%);
+    width: 75%;
+    height: 22px;
+    background: radial-gradient(ellipse, rgba(201, 168, 76, 0.4) 0%, transparent 70%);
     border-radius: 50%;
     animation: glowPulse 2.5s ease-in-out infinite;
+    z-index: 0;
 }
 
+/* shared entrance animation (same as old doll) */
 @keyframes dollDrop {
     from {
         opacity: 0;
@@ -843,8 +1014,13 @@ body {
         gap: 0.4rem;
     }
 
-    .doll-wrap {
-        width: 48vw;
+    .photo-wrap {
+        width: 54vw;
+    }
+
+    .photo-ring-1,
+    .photo-ring-2 {
+        display: none;
     }
 
     .bears-row {
