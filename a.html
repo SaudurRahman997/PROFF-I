@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulations Dr. Farwa! 🎉</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Space+Mono:wght@400;700&family=Nunito:wght@300;400;600;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="a.css">
+</head>
+
+<body>
+
+    <!-- FLOATING PARTICLES BG -->
+    <div class="bg-layer" id="bgLayer"></div>
+
+    <!-- HEARTBEAT BAR -->
+    <div class="heartbeat-bar">
+        <svg class="heartbeat-svg" viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <polyline class="ecg-line" points="
+      0,35 60,35 80,35 90,10 100,55 115,8 130,50 145,35 200,35
+      260,35 280,35 290,10 300,55 315,8 330,50 345,35 400,35
+      460,35 480,35 490,10 500,55 515,8 530,50 545,35 600,35
+      660,35 680,35 690,10 700,55 715,8 730,50 745,35 800,35
+      860,35 880,35 890,10 900,55 915,8 930,50 945,35 1000,35
+      1060,35 1080,35 1090,10 1100,55 1115,8 1130,50 1145,35 1200,35
+    " />
+        </svg>
+    </div>
+
+    <!-- CONFETTI CANVAS -->
+    <canvas id="confettiCanvas"></canvas>
+
+    <div class="page">
+
+        <!-- ═══════════════ HERO ═══════════════ -->
+        <section class="hero">
+
+            <!-- Doll with short hair -->
+            <div class="doll-wrap" id="dollWrap">
+                <svg class="doll-svg" viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Doctor coat body -->
+                    <rect x="58" y="165" width="84" height="110" rx="14" fill="#ffffff" stroke="#e0e0e0"
+                        stroke-width="1.5" />
+                    <!-- Coat lapels -->
+                    <polygon points="100,175 78,165 72,200 100,190" fill="#d4e8f0" />
+                    <polygon points="100,175 122,165 128,200 100,190" fill="#d4e8f0" />
+                    <!-- Stethoscope -->
+                    <path d="M85,178 Q76,200 80,215 Q84,225 92,225 Q100,225 100,218" fill="none" stroke="#2c3e50"
+                        stroke-width="2.5" stroke-linecap="round" />
+                    <circle cx="100" cy="220" r="5" fill="#2c3e50" />
+                    <!-- Pocket with red cross -->
+                    <rect x="110" y="200" width="22" height="16" rx="3" fill="#f0f4f8" stroke="#ddd" stroke-width="1" />
+                    <line x1="121" y1="203" x2="121" y2="213" stroke="#e74c3c" stroke-width="2" />
+                    <line x1="116" y1="208" x2="126" y2="208" stroke="#e74c3c" stroke-width="2" />
+                    <!-- Name tag -->
+                    <rect x="63" y="210" width="36" height="14" rx="3" fill="#3498db" opacity="0.85" />
+                    <text x="81" y="220" text-anchor="middle" font-family="Nunito" font-size="5" fill="white"
+                        font-weight="700">Dr. FARWA</text>
+                    <!-- Arms -->
+                    <rect x="30" y="168" width="28" height="12" rx="6" fill="#f5cba7" transform="rotate(15,44,174)" />
+                    <rect x="142" y="168" width="28" height="12" rx="6" fill="#f5cba7"
+                        transform="rotate(-15,156,174)" />
+                    <!-- Clipboard in hand -->
+                    <rect x="148" y="185" width="22" height="28" rx="3" fill="#fff" stroke="#bbb" stroke-width="1" />
+                    <line x1="152" y1="193" x2="167" y2="193" stroke="#aaa" stroke-width="1.2" />
+                    <line x1="152" y1="198" x2="167" y2="198" stroke="#aaa" stroke-width="1.2" />
+                    <line x1="152" y1="203" x2="162" y2="203" stroke="#aaa" stroke-width="1.2" />
+                    <rect x="156" y="184" width="10" height="4" rx="2" fill="#bbb" />
+                    <!-- Legs -->
+                    <rect x="72" y="272" width="22" height="48" rx="10" fill="#2c3e50" />
+                    <rect x="106" y="272" width="22" height="48" rx="10" fill="#2c3e50" />
+                    <!-- Shoes -->
+                    <ellipse cx="83" cy="318" rx="14" ry="6" fill="#1a252f" />
+                    <ellipse cx="117" cy="318" rx="14" ry="6" fill="#1a252f" />
+                    <!-- Neck -->
+                    <rect x="90" y="148" width="20" height="20" rx="6" fill="#f5cba7" />
+                    <!-- Head -->
+                    <ellipse cx="100" cy="120" rx="42" ry="46" fill="#f5cba7" />
+                    <!-- Short hair - pixie/bob style -->
+                    <ellipse cx="100" cy="88" rx="44" ry="22" fill="#3d1c02" />
+                    <path d="M58,105 Q55,80 70,68 Q85,58 100,58 Q115,58 130,68 Q145,80 142,105" fill="#3d1c02" />
+                    <!-- Side swoops -->
+                    <path d="M58,105 Q50,115 55,128 Q60,115 65,112" fill="#3d1c02" />
+                    <path d="M142,105 Q150,115 145,128 Q140,115 135,112" fill="#3d1c02" />
+                    <!-- Bang detail -->
+                    <path d="M72,80 Q80,88 90,84 Q96,82 100,80 Q104,82 110,84 Q120,88 128,80" fill="#2a1200"
+                        opacity="0.4" />
+                    <!-- Eyes -->
+                    <ellipse cx="85" cy="118" rx="7" ry="8" fill="white" />
+                    <ellipse cx="115" cy="118" rx="7" ry="8" fill="white" />
+                    <circle cx="86" cy="119" r="4.5" fill="#3d1c02" />
+                    <circle cx="116" cy="119" r="4.5" fill="#3d1c02" />
+                    <circle cx="87" cy="117" r="1.5" fill="white" />
+                    <circle cx="117" cy="117" r="1.5" fill="white" />
+                    <!-- Eyebrows -->
+                    <path d="M78,109 Q85,105 92,108" fill="none" stroke="#2a1200" stroke-width="2.2"
+                        stroke-linecap="round" />
+                    <path d="M108,108 Q115,105 122,109" fill="none" stroke="#2a1200" stroke-width="2.2"
+                        stroke-linecap="round" />
+                    <!-- Nose -->
+                    <path d="M97,128 Q100,134 103,128" fill="none" stroke="#d4956a" stroke-width="1.5"
+                        stroke-linecap="round" />
+                    <!-- Smile -->
+                    <path d="M86,138 Q100,150 114,138" fill="none" stroke="#d4956a" stroke-width="2"
+                        stroke-linecap="round" />
+                    <!-- Rosy cheeks -->
+                    <ellipse cx="74" cy="132" rx="8" ry="5" fill="#f1948a" opacity="0.4" />
+                    <ellipse cx="126" cy="132" rx="8" ry="5" fill="#f1948a" opacity="0.4" />
+                    <!-- Earrings -->
+                    <circle cx="58" cy="125" r="4" fill="#f9d342" stroke="#e0b800" stroke-width="1" />
+                    <circle cx="142" cy="125" r="4" fill="#f9d342" stroke="#e0b800" stroke-width="1" />
+                    <!-- Stethoscope ears at top -->
+                    <circle cx="82" cy="173" r="5" fill="#2c3e50" />
+                    <circle cx="118" cy="173" r="5" fill="#2c3e50" />
+                    <path d="M82,173 Q100,165 118,173" fill="none" stroke="#2c3e50" stroke-width="2.5" />
+                </svg>
+                <div class="doll-glow"></div>
+            </div>
+
+            <!-- Header text -->
+            <p class="greeting-line">✦ With love & admiration ✦</p>
+
+            <div class="name-block">
+                <p class="dr-prefix">Doctor-in-the-making</p>
+                <h1 class="main-name"><span class="gold-letter">D</span>IYA</h1>
+            </div>
+
+            <p class="tagline">You did it, genius! MBBS 1st Year <em>conquered.</em><br>76% and still not satisfied
+                HUH🩺</p>
+
+            <!-- Score ring -->
+            <div class="score-badge">
+                <div class="score-ring">
+                    <svg width="140" height="140" viewBox="0 0 140 140">
+                        <circle class="score-ring-bg" cx="70" cy="70" r="56" />
+                        <circle class="score-ring-fill" cx="70" cy="70" r="56" />
+                    </svg>
+                    <div class="score-inner">
+                        <span class="score-number">76%</span>
+                        <span class="score-pct">MBBS Year 1</span>
+                    </div>
+                </div>
+                <span class="score-label">✦ Outstanding Score ✦</span>
+            </div>
+
+        </section>
+
+        <!-- ═══════════════ TEDDY BEARS ROW ═══════════════ -->
+        <section class="bears-section">
+            <div class="bears-title">Sending you all the TIGHT hugs! </div>
+            <div class="bears-row">
+
+
+                <!-- Bear 4 – Heart bear -->
+                <div class="bear-card" style="--delay:0.45s">
+                    <svg class="bear-svg" viewBox="0 0 120 140" xmlns="http://www.w3.org/2000/svg">
+                        <ellipse cx="60" cy="105" rx="35" ry="38" fill="#c8a0d8" />
+                        <ellipse cx="60" cy="110" rx="20" ry="22" fill="#e8c8f0" opacity="0.8" />
+                        <ellipse cx="25" cy="105" rx="10" ry="16" fill="#c8a0d8" transform="rotate(-15,25,105)" />
+                        <ellipse cx="95" cy="105" rx="10" ry="16" fill="#c8a0d8" transform="rotate(15,95,105)" />
+                        <ellipse cx="22" cy="120" rx="10" ry="7" fill="#a870c0" />
+                        <ellipse cx="98" cy="120" rx="10" ry="7" fill="#a870c0" />
+                        <ellipse cx="48" cy="138" rx="12" ry="8" fill="#a870c0" />
+                        <ellipse cx="72" cy="138" rx="12" ry="8" fill="#a870c0" />
+                        <circle cx="60" cy="62" r="32" fill="#c8a0d8" />
+                        <circle cx="32" cy="38" r="14" fill="#c8a0d8" />
+                        <circle cx="32" cy="38" r="8" fill="#a870c0" />
+                        <circle cx="88" cy="38" r="14" fill="#c8a0d8" />
+                        <circle cx="88" cy="38" r="8" fill="#a870c0" />
+                        <!-- Big heart on belly -->
+                        <path d="M50,108 Q50,100 60,106 Q70,100 70,108 Q70,118 60,124 Q50,118 50,108Z" fill="#ff6b9d"
+                            opacity="0.85" />
+                        <!-- Face -->
+                        <ellipse cx="60" cy="68" rx="22" ry="16" fill="#e8c8f0" opacity="0.6" />
+                        <circle cx="50" cy="60" r="5" fill="#4a1060" />
+                        <circle cx="70" cy="60" r="5" fill="#4a1060" />
+                        <circle cx="51" cy="59" r="2" fill="white" />
+                        <circle cx="71" cy="59" r="2" fill="white" />
+                        <ellipse cx="60" cy="70" rx="6" ry="4" fill="#a870c0" />
+                        <!-- Big smile -->
+                        <path d="M50,77 Q60,87 70,77" fill="none" stroke="#a870c0" stroke-width="2.5"
+                            stroke-linecap="round" />
+                        <!-- Stars around head -->
+                        <text x="20" y="52" font-size="10" fill="#f9d342">★</text>
+                        <text x="94" y="52" font-size="10" fill="#f9d342">★</text>
+                        <text x="57" y="30" font-size="8" fill="#ff6b9d">♥</text>
+                        <!-- Bow on ear -->
+                        <path d="M78,36 Q84,30 90,36 Q84,42 78,36Z" fill="#ff6b9d" />
+                        <circle cx="84" cy="36" r="3" fill="#ff4080" />
+                    </svg>
+                    <p class="bear-label">Bestie Bear</p>
+                </div>
+
+            </div>
+        </section>
+
+
+
+        <!-- ═══════════════ BIG QUOTE ═══════════════ -->
+        <section class="quote-section">
+            <div class="quote-wrap">
+                <div class="quote-mark">"</div>
+                <blockquote class="quote-text">
+                    The art of medicine consists of amusing the patient<br class="br-desktop"> while nature cures the
+                    disease —<br>
+                    <em>but doctors like Farwa actually cure it.</em>
+                </blockquote>
+                <div class="quote-attr">— Your biggest fan 💛</div>
+            </div>
+        </section>
+
+        <!-- ═══════════════ FINAL WISH ═══════════════ -->
+        <section class="final-section">
+            <div class="final-inner">
+                <div class="stars-row">✦ ✦ ✦</div>
+                <h2 class="final-heading">Congratulations,<br><span class="gold-text">Diya!</span></h2>
+                <p class="final-sub">May every year be better than the last.<br>May your stethoscope always find the
+                    right rhythm.<br>Inshallah you will get the all thing in life you want. 🩺❤️</p>
+                <button class="celebrate-btn" onclick="showHugPage()">🎉 Want HUG? Press ME!</button>
+            </div>
+        </section>
+
+    </div><!-- .page -->
+
+    <!-- ═══════════════ HUG PAGE ═══════════════ -->
+    <div class="hug-page" id="hugPage">
+        <div class="hug-content">
+            <button class="close-hug-btn" onclick="closeHugPage()">&times;</button>
+
+            <h2 class="hug-heading">Here's your BIGGEST HUG! 🤗</h2>
+
+            <div class="hugging-bears">
+                <!-- Left Bear (reaching out) -->
+                <svg class="bear-hugging left-bear" viewBox="0 0 120 140" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse cx="50" cy="105" rx="35" ry="38" fill="#d4a574" />
+                    <ellipse cx="50" cy="110" rx="20" ry="22" fill="#e8c497" opacity="0.8" />
+                    <ellipse cx="15" cy="105" rx="10" ry="16" fill="#d4a574" transform="rotate(-15,15,105)" />
+                    <ellipse cx="85" cy="105" rx="12" ry="16" fill="#d4a574" transform="rotate(25,85,105)" />
+                    <ellipse cx="12" cy="120" rx="10" ry="7" fill="#b8885a" />
+                    <ellipse cx="88" cy="120" rx="10" ry="7" fill="#b8885a" />
+                    <ellipse cx="38" cy="138" rx="12" ry="8" fill="#b8885a" />
+                    <ellipse cx="62" cy="138" rx="12" ry="8" fill="#b8885a" />
+                    <circle cx="50" cy="62" r="32" fill="#d4a574" />
+                    <circle cx="22" cy="38" r="14" fill="#d4a574" />
+                    <circle cx="22" cy="38" r="8" fill="#b8885a" />
+                    <circle cx="78" cy="38" r="14" fill="#d4a574" />
+                    <circle cx="78" cy="38" r="8" fill="#b8885a" />
+                    <!-- Face -->
+                    <ellipse cx="50" cy="68" rx="22" ry="16" fill="#e8c497" opacity="0.6" />
+                    <circle cx="40" cy="60" r="5" fill="#4a3020" />
+                    <circle cx="60" cy="60" r="5" fill="#4a3020" />
+                    <circle cx="41" cy="59" r="2" fill="white" />
+                    <circle cx="61" cy="59" r="2" fill="white" />
+                    <ellipse cx="50" cy="70" rx="6" ry="4" fill="#b8885a" />
+                    <!-- Big smile -->
+                    <path d="M40,77 Q50,87 60,77" fill="none" stroke="#b8885a" stroke-width="2.5"
+                        stroke-linecap="round" />
+                    <!-- Rosy cheeks -->
+                    <ellipse cx="30" cy="132" rx="8" ry="5" fill="#f1948a" opacity="0.4" />
+                    <ellipse cx="70" cy="132" rx="8" ry="5" fill="#f1948a" opacity="0.4" />
+                </svg>
+
+                <!-- Right Bear (reaching out) -->
+                <svg class="bear-hugging right-bear" viewBox="0 0 120 140" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse cx="70" cy="105" rx="35" ry="38" fill="#c8a0d8" />
+                    <ellipse cx="70" cy="110" rx="20" ry="22" fill="#e8c8f0" opacity="0.8" />
+                    <ellipse cx="35" cy="105" rx="12" ry="16" fill="#c8a0d8" transform="rotate(-25,35,105)" />
+                    <ellipse cx="105" cy="105" rx="10" ry="16" fill="#c8a0d8" transform="rotate(15,105,105)" />
+                    <ellipse cx="32" cy="120" rx="10" ry="7" fill="#a870c0" />
+                    <ellipse cx="108" cy="120" rx="10" ry="7" fill="#a870c0" />
+                    <ellipse cx="58" cy="138" rx="12" ry="8" fill="#a870c0" />
+                    <ellipse cx="82" cy="138" rx="12" ry="8" fill="#a870c0" />
+                    <circle cx="70" cy="62" r="32" fill="#c8a0d8" />
+                    <circle cx="42" cy="38" r="14" fill="#c8a0d8" />
+                    <circle cx="42" cy="38" r="8" fill="#a870c0" />
+                    <circle cx="98" cy="38" r="14" fill="#c8a0d8" />
+                    <circle cx="98" cy="38" r="8" fill="#a870c0" />
+                    <!-- Face -->
+                    <ellipse cx="70" cy="68" rx="22" ry="16" fill="#e8c8f0" opacity="0.6" />
+                    <circle cx="60" cy="60" r="5" fill="#4a1060" />
+                    <circle cx="80" cy="60" r="5" fill="#4a1060" />
+                    <circle cx="61" cy="59" r="2" fill="white" />
+                    <circle cx="81" cy="59" r="2" fill="white" />
+                    <ellipse cx="70" cy="70" rx="6" ry="4" fill="#a870c0" />
+                    <!-- Big smile -->
+                    <path d="M60,77 Q70,87 80,77" fill="none" stroke="#a870c0" stroke-width="2.5"
+                        stroke-linecap="round" />
+                    <!-- Rosy cheeks -->
+                    <ellipse cx="50" cy="132" rx="8" ry="5" fill="#f1948a" opacity="0.4" />
+                    <ellipse cx="90" cy="132" rx="8" ry="5" fill="#f1948a" opacity="0.4" />
+                </svg>
+            </div>
+
+            <p class="hug-message">You deserve all the Hugs 💛<br>Congrats again, Dr. Diya! (Yahan aise hi Hugs milte
+                hain) 🩺</p>
+            <button class="celebrate-btn" onclick="launchConfetti(); closeHugPage()">Launch Confetti! 🎉</button>
+        </div>
+    </div>
+
+    <script src="js/confetti.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        function showHugPage() {
+            const hugPage = document.getElementById('hugPage');
+            hugPage.classList.add('active');
+            hugPage.style.display = 'flex';
+        }
+
+        function closeHugPage() {
+            const hugPage = document.getElementById('hugPage');
+            hugPage.classList.remove('active');
+            setTimeout(() => {
+                hugPage.style.display = 'none';
+            }, 300);
+        }
+
+        // Close hug page when clicking outside
+        document.addEventListener('DOMContentLoaded', function () {
+            const hugPage = document.getElementById('hugPage');
+            hugPage.addEventListener('click', function (e) {
+                if (e.target === hugPage) {
+                    closeHugPage();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
